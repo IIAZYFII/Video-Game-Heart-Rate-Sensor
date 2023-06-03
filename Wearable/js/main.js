@@ -11,11 +11,28 @@ window.onload = function () {
 	}
     });
 
-    // Sample code
-    var textbox = document.querySelector('.contents');
-    textbox.addEventListener("click", function(){
-    	box = document.querySelector('#textbox');
-    	box.innerHTML = box.innerHTML == "Basic" ? "Sample" : "Basic";
-    });
+    function onSuccess() {
+    	var currentBPM = document.getElementById('bpm')
+
+        function onchangedCB(hrmInfo) {
+    		var hrmBPM =hrmInfo.heartRate
+            console.log('heart rate:' + hrmBPM);
+    		
+    		
+    		if(hrmBPM >= 0) {
+    			 currentBPM.innerHTML = hrmInfo.heartRate + '  BPM'
+    		}
+           
+        }
+        tizen.humanactivitymonitor.start('HRM', onchangedCB);
+    }
+
+   
+   function onError(e) {
+	    console.log("error " + JSON.stringify(e));
+	}
+   
+ 
+	tizen.ppm.requestPermission("http://tizen.org/privilege/healthinfo",onSuccess, onError);
     
 };

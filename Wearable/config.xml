@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/VideoGameHRMSender" version="1.0.0" viewmodes="maximized">
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://AZYF/VideoGameHRMSender" version="1.0.0" viewmodes="maximized">
     <tizen:application id="8hsSr35irU.VideoGameHRMSender" package="8hsSr35irU" required_version="4.0"/>
+    <author>AZYF</author>
     <content src="index.html"/>
     <feature name="http://tizen.org/feature/screen.size.all"/>
     <icon src="icon.png"/>
     <name>VideoGameHRMSender</name>
     <tizen:profile name="wearable"/>
+      <tizen:privilege name="http://tizen.org/privilege/healthinfo"/>
+    <tizen:privilege name="http://tizen.org/privilege/location"/>
 </widget>
