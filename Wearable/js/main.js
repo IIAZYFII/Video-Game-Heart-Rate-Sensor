@@ -34,5 +34,6 @@ window.onload = function () {
    
  
 	tizen.ppm.requestPermission("http://tizen.org/privilege/healthinfo",onSuccess, onError);
+	tizen.power.request("SCREEN", "SCREEN_NORMAL");
     
 };

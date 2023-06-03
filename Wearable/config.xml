@@ -9,4 +9,5 @@
     <tizen:profile name="wearable"/>
       <tizen:privilege name="http://tizen.org/privilege/healthinfo"/>
     <tizen:privilege name="http://tizen.org/privilege/location"/>
+    <tizen:privilege name="http://tizen.org/privilege/power"/>
 </widget>
