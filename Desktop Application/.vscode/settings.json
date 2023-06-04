@@ -1,0 +1,8 @@
+{
+    "cmake.configureArgs": [
+        "-DMAKE_TOOLCHAIN_FILE=C:\\Program Files\\VCPKG\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake"
+    ],
+    "files.associations": {
+        "iostream": "cpp"
+    }
+}

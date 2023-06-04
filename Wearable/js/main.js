@@ -37,3 +37,5 @@ window.onload = function () {
 	tizen.power.request("SCREEN", "SCREEN_NORMAL");
     
 };
+
+

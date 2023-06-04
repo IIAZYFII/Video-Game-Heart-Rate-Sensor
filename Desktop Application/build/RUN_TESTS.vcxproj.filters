@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\hussa\Documents\Projects\Video-Game-Heart-Rate-Sensor\Desktop Application\build\CMakeFiles\21c23f74481d711d640b50d784ceeae5\RUN_TESTS_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{3441F391-B6F0-3EE4-B8CC-9690C40E89F0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,12 @@
+{
+    "name": "versions-test",
+    "version": "1.0.0",
+    "dependencies": [
+        {
+            "name": "websocketpp",
+            "version>=": "0.8.2"
+        }
+       
+    ],
+    "builtin-baseline": "1b11fd301531e6df35a6107c1e8665b1e77a2d8e"
+}

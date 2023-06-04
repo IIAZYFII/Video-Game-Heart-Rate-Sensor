@@ -24,8 +24,8 @@ eY+H7YEN7A==</DigestValue>
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>O+ckHjBEkTyT6eAF5kveHaFV8YNjYT0p3CLtNTqmY9ExLRbgNyzoH99KL4xA7TYGNvG2mSMgCogb
-0xD61c5nuA==</DigestValue>
+<DigestValue>06w+CqxGkWBEMlubGG2P6uoPW6jMq4vDXD6mHVV1atBv5lsA6AGaP5EtvEIZnyPZdTaSBszAPIQ9
+kBoqqAqDPw==</DigestValue>
 </Reference>
 <Reference URI="red-heart-icon.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -42,11 +42,11 @@ QY10fG1EWQ==</DigestValue>
 </Reference>
 </SignedInfo>
 <SignatureValue>
-SxbcHHujSEcEyfkiQjkttdgPnssBXPCsbmJLDymDg3NEpFfgIHLrA4mElci4g6UQOWNbZ/5CNgW9
-ukzcVxw6QLycQUqzZRKlvvgbtJidCyXW0A5nK1Pt0ksQ7f953v2M5cKYH3pMpxu+u+gmwOR1N8+M
-SCkEbspx1OYejxPhJPrvmnMpw+83NKqCjZkZNPN+SsU+ExBI6WZ2Vv22jkhC6apWtFfgfOJFhhBp
-XhUrGj7gJLZdbXwD7OZ6cWfTb95phafFsjllztLJZKmgYDd4lutXQd4A9cd9w/50LSCJZGsxeIlK
-alR3MKchFg0DVdYfL48eg/pmZLreyDiyMsJfaQ==
+Q/BnhoSe11MO4QFFXZIRsSYLSsJnyXkZv0HGL9T54NJQWHOjp0Y+U2ilShk7CpaBr0P41o66Qr0c
+22HP/snlJW+GF6Z+A5R8sNd1SAR+YI2jxReVjdjmW/+FQ8fVYVvAb24tRLmwoDFrg+UFR6pox2RF
+dR3ZVJYEgH35hIagJyNzsoVPwxJZSlNWNfNth0tTqiqrf573fGkbHn1ovm82sa97cB54tYM3nKn1
+yjKW5Fht2DsxVwSA/lYl9xd8AQ9sdi4b1OTC1OUnGk2wo2P7uzvdPrPL88HUzgvdnt1TrHiR+jRQ
+Qks1ZNlQVF4Ov/l46WunYWFWALnvOj9L5cNZfw==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

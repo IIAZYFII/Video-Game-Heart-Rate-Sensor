@@ -1,0 +1,10 @@
+^C:\USERS\HUSSA\DOCUMENTS\PROJECTS\VIDEO-GAME-HEART-RATE-SENSOR\DESKTOP APPLICATION\CMAKELISTS.TXT
+setlocal
+C:\Users\hussa\AppData\Local\Programs\Python\Python310\Lib\site-packages\cmake\data\bin\cmake.exe "-SC:/Users/hussa/Documents/Projects/Video-Game-Heart-Rate-Sensor/Desktop Application" "-BC:/Users/hussa/Documents/Projects/Video-Game-Heart-Rate-Sensor/Desktop Application/build" --check-stamp-file "C:/Users/hussa/Documents/Projects/Video-Game-Heart-Rate-Sensor/Desktop Application/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
