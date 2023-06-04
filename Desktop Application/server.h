@@ -12,5 +12,6 @@ public:
     Server();
     ~Server();
     void run();
+    void serverOpen(websocketpp::connection_hdl hdl);
 };
 #endif
