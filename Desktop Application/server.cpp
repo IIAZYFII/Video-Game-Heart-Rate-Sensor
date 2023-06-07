@@ -29,6 +29,8 @@ void Server::run()
 
      websocketpp::server<websocketpp::config::asio>::connection_ptr connection = endpointref->get_con_from_hdl(hdl);
 
+    
+
     std::cout << "Received message from " << connection->get_remote_endpoint() << ": " << message << std::endl;
 
   

@@ -4,8 +4,8 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"></SignatureMethod>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>5he26Ovj9z79chnR6HKG4ZcBH2egdOJTHFymlnFMBWoz5Uh806OzH17lpsX5fdfyh5dlnEJOoJwh
-x6qz62E2ng==</DigestValue>
+<DigestValue>lZJ9WjmXzwFSelYnCxeIYwDnFhGmAJmZjCZAYiPU0tVlPw72y6/IauAgtlzqcAQT89Gjf91a6bG6
+XmMpjDovAg==</DigestValue>
 </Reference>
 <Reference URI="css%2Fstyle.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -24,8 +24,8 @@ eY+H7YEN7A==</DigestValue>
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
-<DigestValue>06w+CqxGkWBEMlubGG2P6uoPW6jMq4vDXD6mHVV1atBv5lsA6AGaP5EtvEIZnyPZdTaSBszAPIQ9
-kBoqqAqDPw==</DigestValue>
+<DigestValue>/6Qm7HnzRXx7/7Q0oOoYeY6VgIoz9mzLGgw7u0SM25nYKQM4Un9jhlJMPl5c4s6eGnDJdecgAuTf
+AwGk+lUz2w==</DigestValue>
 </Reference>
 <Reference URI="red-heart-icon.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"></DigestMethod>
@@ -42,11 +42,11 @@ QY10fG1EWQ==</DigestValue>
 </Reference>
 </SignedInfo>
 <SignatureValue>
-Q/BnhoSe11MO4QFFXZIRsSYLSsJnyXkZv0HGL9T54NJQWHOjp0Y+U2ilShk7CpaBr0P41o66Qr0c
-22HP/snlJW+GF6Z+A5R8sNd1SAR+YI2jxReVjdjmW/+FQ8fVYVvAb24tRLmwoDFrg+UFR6pox2RF
-dR3ZVJYEgH35hIagJyNzsoVPwxJZSlNWNfNth0tTqiqrf573fGkbHn1ovm82sa97cB54tYM3nKn1
-yjKW5Fht2DsxVwSA/lYl9xd8AQ9sdi4b1OTC1OUnGk2wo2P7uzvdPrPL88HUzgvdnt1TrHiR+jRQ
-Qks1ZNlQVF4Ov/l46WunYWFWALnvOj9L5cNZfw==
+kYex8v3bnyMmRtD7l5Q4hfYgk5x+Vzp/z1ydiIfNg4q46C8eMPoMUvnmYeLNnepyelLQPl6vkd0a
+Vby32bWLGXY5fX4SJ5Mu52dwXZExfGT8BAqSSWTTOmwh1Cl0h+7ASFQYOmesDrsuTyIurM+1Bx7T
+KzDnCNupX9vB8b1CUVFxKSM42EaVTDuPTKZaqhXAqWZxry1mXneT9h7emQ9gYKRnmxe8Hg9xSm/j
+37auyp9XlBKWTJp0R5Y1CN9rdts4FIxm2FId30ECXH3Ytj+9vPcvRGlBKrp7vQHKzZEVgNRRYOSD
+Z7DKV7ZswNQX3ka+gee2wCxy0KOTqmmhHdvq/A==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

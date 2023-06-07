@@ -1,8 +1,10 @@
+
 #ifndef SERVER_H
 #define SERVER_H
 
 #include <websocketpp/server.hpp>
 #include <websocketpp/config/asio_no_tls.hpp>
+#include <functional>
 class Server
 {
 private:

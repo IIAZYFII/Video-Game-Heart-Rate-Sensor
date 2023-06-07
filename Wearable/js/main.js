@@ -10,17 +10,40 @@ window.onload = function () {
 	} catch (ignore) {
 	}
     });
-
+    
+ 
     function onSuccess() {
     	var currentBPM = document.getElementById('bpm')
-
-        function onchangedCB(hrmInfo) {
+    	var socketURL = 'ws://192.168.0.13:9002';
+    	var webSocket = new WebSocket(socketURL);
+    	
+    	
+    	webSocket.onopen = function(e) {
+    		console.log('connection open, readyState: ' + e.target.readyState);
+   		 
+    	};
+    
+    	webSocket.onerror = function(e) {
+    		console.log('Cannot establish a connection')
+    		
+    	};
+    	
+    	
+    	function onchangedCB(hrmInfo) {
     		var hrmBPM =hrmInfo.heartRate
             console.log('heart rate:' + hrmBPM);
     		
     		
     		if(hrmBPM >= 0) {
-    			 currentBPM.innerHTML = hrmInfo.heartRate + '  BPM'
+    			currentBPM.innerHTML = hrmInfo.heartRate + '  BPM'
+    			 console.log('web socket: ' + webSocket.readyState);
+    			 if(webSocket.readyState == 1) {
+    				 webSocket.send(hrmBPM);
+    				
+    			 } else if(webSocket.readyState == 3) {
+    				 webSocket = new WebSocket(socketURL);
+    				
+    			 }
     		}
            
         }
