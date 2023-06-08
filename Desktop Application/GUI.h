@@ -1,13 +1,10 @@
-#pragma once
-
-#include "imgui.h"
-
+#include <imgui.h>
 class GUI
 {
-    /*
-    public:
+
+public:
     virtual void Init();
     virtual void Update();
     void Render();
-    void Shutdown();*/
+    void Shutdown();
 };

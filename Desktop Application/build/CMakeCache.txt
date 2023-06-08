@@ -221,6 +221,9 @@ Desktop_Application_SOURCE_DIR:STATIC=C:/Users/hussa/Documents/Projects/Video-Ga
 //No help, variable specified on the command line.
 MAKE_TOOLCHAIN_FILE:UNINITIALIZED=C:\Program Files\VCPKG\vcpkg\scripts\buildsystems\vcpkg.cmake
 
+//The directory containing a CMake configuration file for glad.
+glad_DIR:PATH=C:/Program Files/VCPKG/vcpkg/installed/x86-windows/share/glad
+
 //The directory containing a CMake configuration file for glfw3.
 glfw3_DIR:PATH=C:/Program Files/VCPKG/vcpkg/installed/x86-windows/share/glfw3
 
