@@ -5,6 +5,7 @@
 
 int main()
 {
+    const char *glsl_version = "#version 130";
 
     if (!glfwInit())
     {
@@ -16,21 +17,7 @@ int main()
     if (window == nullptr)
         return 1;
     glfwMakeContextCurrent(window);
-    glfwSwapInterval(1); // Enable vsync
-
-    // Setup Dear ImGui context
-    IMGUI_CHECKVERSION();
-    ImGui::CreateContext();
-    ImGuiIO &io = ImGui::GetIO();
-    (void)io;
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; // Enable Keyboard Controls
-
-    // Setup Dear ImGui style
-    ImGui::StyleColorsDark();
-    // ImGui::StyleColorsLight();
-
-    // When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
-    ImGuiStyle &style = ImGui::GetStyle();
+    glfwSwapInterval(1);
 
     // Setup Platform/Renderer backends
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -39,12 +26,24 @@ int main()
     }
 
     int screen_width, screen_height;
-	glfwGetFramebufferSize(window, &screen_width, &screen_height);
-	glViewport(0, 0, screen_width, screen_height);
+    glfwGetFramebufferSize(window, &screen_width, &screen_height);
+    glViewport(0, 0, screen_width, screen_height);
 
+    GUI gui();
+    gui().Init(window, glsl_version);
 
-    //Server server;
-   // server.run();
+    while (!glfwWindowShouldClose(window))
+    {
+        glfwPollEvents();
+        gui().NewFrame();
+        gui().Update();
+        gui().Render();
+    }
+
+    gui().Shutdown();
+
+    // Server server;
+    // server.run();
 
     return 0;
 }

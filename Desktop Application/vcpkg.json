@@ -17,9 +17,13 @@
         {
             "name" : "imgui",
             "version>=": "1.88",
-            "dependencies": ["imgui", "glfw3", "glad"]
+            "dependencies": [
+            {
+               "name": "imgui",
+               "features": ["opengl3-binding", "glfw-binding"]
+            }, 
+            "glfw3", "glad"]
         }
        
-    ],
-    "builtin-baseline": "1b11fd301531e6df35a6107c1e8665b1e77a2d8e"
+    ]
 }
