@@ -1,8 +1,18 @@
 # CMake generation dependency list for this directory.
+C:/Program Files/VCPKG/vcpkg/installed/x86-windows/share/glfw3/glfw3Config.cmake
+C:/Program Files/VCPKG/vcpkg/installed/x86-windows/share/glfw3/glfw3ConfigVersion.cmake
+C:/Program Files/VCPKG/vcpkg/installed/x86-windows/share/glfw3/glfw3Targets-debug.cmake
+C:/Program Files/VCPKG/vcpkg/installed/x86-windows/share/glfw3/glfw3Targets-release.cmake
+C:/Program Files/VCPKG/vcpkg/installed/x86-windows/share/glfw3/glfw3Targets.cmake
+C:/Program Files/VCPKG/vcpkg/installed/x86-windows/share/imgui/imgui-config.cmake
+C:/Program Files/VCPKG/vcpkg/installed/x86-windows/share/imgui/imgui-targets-debug.cmake
+C:/Program Files/VCPKG/vcpkg/installed/x86-windows/share/imgui/imgui-targets-release.cmake
+C:/Program Files/VCPKG/vcpkg/installed/x86-windows/share/imgui/imgui-targets.cmake
 C:/Program Files/VCPKG/vcpkg/installed/x86-windows/share/websocketpp/websocketpp-config.cmake
 C:/Users/hussa/AppData/Local/Programs/Python/Python310/Lib/site-packages/cmake/data/share/cmake-3.25/Modules/CMakeCInformation.cmake
 C:/Users/hussa/AppData/Local/Programs/Python/Python310/Lib/site-packages/cmake/data/share/cmake-3.25/Modules/CMakeCXXInformation.cmake
 C:/Users/hussa/AppData/Local/Programs/Python/Python310/Lib/site-packages/cmake/data/share/cmake-3.25/Modules/CMakeCommonLanguageInclude.cmake
+C:/Users/hussa/AppData/Local/Programs/Python/Python310/Lib/site-packages/cmake/data/share/cmake-3.25/Modules/CMakeFindDependencyMacro.cmake
 C:/Users/hussa/AppData/Local/Programs/Python/Python310/Lib/site-packages/cmake/data/share/cmake-3.25/Modules/CMakeGenericSystem.cmake
 C:/Users/hussa/AppData/Local/Programs/Python/Python310/Lib/site-packages/cmake/data/share/cmake-3.25/Modules/CMakeInitializeConfigs.cmake
 C:/Users/hussa/AppData/Local/Programs/Python/Python310/Lib/site-packages/cmake/data/share/cmake-3.25/Modules/CMakeLanguageInformation.cmake
