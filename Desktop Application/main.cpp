@@ -1,7 +1,5 @@
 #include "server.h"
 #include "GUI.h"
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
 
 int main()
 {
@@ -29,18 +27,19 @@ int main()
     glfwGetFramebufferSize(window, &screen_width, &screen_height);
     glViewport(0, 0, screen_width, screen_height);
 
-    GUI gui();
-    gui().Init(window, glsl_version);
+    GUI gui = GUI();
+    gui.Init(window, glsl_version);
 
     while (!glfwWindowShouldClose(window))
     {
         glfwPollEvents();
-        gui().NewFrame();
-        gui().Update();
-        gui().Render();
+        gui.NewFrame();
+        gui.Update();
+        gui.Render(window, screen_width, screen_height);
+        glfwSwapBuffers(window);
     }
 
-    gui().Shutdown();
+    gui.Shutdown(window);
 
     // Server server;
     // server.run();
