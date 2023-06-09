@@ -1,3 +1,0 @@
-C:/Users/hussa/Documents/Projects/Video-Game-Heart-Rate-Sensor/Desktop Application/build/CMakeFiles/Desktop_Application.dir
-C:/Users/hussa/Documents/Projects/Video-Game-Heart-Rate-Sensor/Desktop Application/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/hussa/Documents/Projects/Video-Game-Heart-Rate-Sensor/Desktop Application/build/CMakeFiles/ZERO_CHECK.dir
