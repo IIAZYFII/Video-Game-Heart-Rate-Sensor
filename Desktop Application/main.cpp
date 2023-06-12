@@ -10,8 +10,10 @@ int main()
         return 1;
     }
 
+    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+
     // Create window with graphics context
-    GLFWwindow *window = glfwCreateWindow(1280, 720, "Example", nullptr, nullptr);
+    GLFWwindow *window = glfwCreateWindow(400, 250, "Example", nullptr, nullptr);
     if (window == nullptr)
         return 1;
     glfwMakeContextCurrent(window);
@@ -23,9 +25,7 @@ int main()
         throw("Unable to context with OpenGL");
     }
 
-    int screen_width, screen_height;
-    glfwGetFramebufferSize(window, &screen_width, &screen_height);
-    glViewport(0, 0, screen_width, screen_height);
+   
 
     GUI gui = GUI();
     gui.Init(window, glsl_version);
@@ -35,7 +35,7 @@ int main()
         glfwPollEvents();
         gui.NewFrame();
         gui.Update();
-        gui.Render(window, screen_width, screen_height);
+        gui.Render(window);
         glfwSwapBuffers(window);
     }
 

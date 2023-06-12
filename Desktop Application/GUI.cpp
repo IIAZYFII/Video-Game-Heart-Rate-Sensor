@@ -14,29 +14,29 @@ void GUI::Init(GLFWwindow *window, const char *glsl_version)
 
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(glsl_version);
-    ImGui::StyleColorsDark();
-
+    ImGui::StyleColorsLight();
 }
 
 void GUI::NewFrame()
 {
     ImGui_ImplOpenGL3_NewFrame();
-	ImGui_ImplGlfw_NewFrame();
-	ImGui::NewFrame();
+    ImGui_ImplGlfw_NewFrame();
+    ImGui::NewFrame();
 }
 
 void GUI::Update()
 {
-    ImGui::Begin("Placholder name");
+    ImGui::Begin("Placholder name", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar);
     ImGui::Text("Placeholder text");
     ImGui::End();
 }
 
-void GUI::Render(GLFWwindow *window, int &display_w, int &display_h)
+void GUI::Render(GLFWwindow *window)
 {
 
-    glfwGetFramebufferSize(window, &display_w, &display_h);
-    glViewport(0, 0, display_w, display_h);
+    int screen_width, screen_height;
+    glfwGetFramebufferSize(window, &screen_width, &screen_height);
+    glViewport(0, 0, screen_width, screen_height);
     glClear(GL_COLOR_BUFFER_BIT);
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

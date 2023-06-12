@@ -14,7 +14,7 @@ public:
     void NewFrame();
     void Init(GLFWwindow * window, const char* glsl_version);
     void Update();
-    void Render(GLFWwindow *window, int &display_w, int &display_h);
+    void Render(GLFWwindow *window);
     void Shutdown(GLFWwindow *window);
 };
 #endif
