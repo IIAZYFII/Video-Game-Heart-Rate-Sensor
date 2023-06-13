@@ -15,6 +15,7 @@ void GUI::Init(GLFWwindow *window, const char *glsl_version)
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(glsl_version);
     ImGui::StyleColorsLight();
+    ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.29f, 0.29f, 0.32f, 1.0f));
 }
 
 void GUI::NewFrame()
@@ -26,8 +27,14 @@ void GUI::NewFrame()
 
 void GUI::Update()
 {
-    ImGui::Begin("Placholder name", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar);
-    ImGui::Text("Placeholder text");
+    ImGui::Begin("Placholder name", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
+    ImGui::Indent();
+    const char *ip_addresses[] = {"192.168.0.1", "192.168.0.13"};
+    static int current_item = 0;
+
+    ImGui::SetNextItemWidth(150);
+
+    ImGui::Combo("##", &current_item, ip_addresses, IM_ARRAYSIZE(ip_addresses));
     ImGui::End();
 }
 

@@ -25,11 +25,8 @@ int main()
         throw("Unable to context with OpenGL");
     }
 
-   
-
-    GUI gui = GUI();
+       GUI gui = GUI();
     gui.Init(window, glsl_version);
-
     while (!glfwWindowShouldClose(window))
     {
         glfwPollEvents();
