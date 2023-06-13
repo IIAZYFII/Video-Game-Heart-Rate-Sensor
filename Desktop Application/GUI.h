@@ -5,6 +5,7 @@
 #include <imgui_impl_opengl3.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include "server.h"
 class GUI
 {
 
@@ -13,7 +14,7 @@ public:
     ~GUI();
     void NewFrame();
     void Init(GLFWwindow * window, const char* glsl_version);
-    void Update();
+    void Update(Server &server);
     void Render(GLFWwindow *window);
     void Shutdown(GLFWwindow *window);
 };

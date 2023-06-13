@@ -1,4 +1,3 @@
-#include "server.h"
 #include "GUI.h"
 
 int main()
@@ -25,21 +24,19 @@ int main()
         throw("Unable to context with OpenGL");
     }
 
-       GUI gui = GUI();
+    GUI gui = GUI();
+    Server server;
     gui.Init(window, glsl_version);
     while (!glfwWindowShouldClose(window))
     {
         glfwPollEvents();
         gui.NewFrame();
-        gui.Update();
+        gui.Update(server);
         gui.Render(window);
         glfwSwapBuffers(window);
     }
 
     gui.Shutdown(window);
 
-    // Server server;
-    // server.run();
-
-    return 0;
+        return 0;
 }

@@ -11,6 +11,7 @@ void GUI::Init(GLFWwindow *window, const char *glsl_version)
     ImGuiIO &io = ImGui::GetIO();
     (void)io;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+    io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\segoeui.ttf", 18.0f);
 
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(glsl_version);
@@ -25,7 +26,7 @@ void GUI::NewFrame()
     ImGui::NewFrame();
 }
 
-void GUI::Update()
+void GUI::Update(Server &server)
 {
     ImGui::Begin("Placholder name", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
     ImGui::Indent();
@@ -33,8 +34,24 @@ void GUI::Update()
     static int current_item = 0;
 
     ImGui::SetNextItemWidth(150);
+    ImGui::Combo("##combo", &current_item, ip_addresses, IM_ARRAYSIZE(ip_addresses));
 
-    ImGui::Combo("##", &current_item, ip_addresses, IM_ARRAYSIZE(ip_addresses));
+    ImGui::SameLine();
+    ImGui::SetNextItemWidth(50);
+
+    char portTextBuffer[6] = "9002";
+    ImGui::InputText("##Port", portTextBuffer, sizeof(portTextBuffer), ImGuiInputTextFlags_CharsDecimal);
+
+    ImGui::SameLine();
+    ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(255, 255, 255, 255));
+    ImGui::Text("Port");
+    ImGui::SameLine();
+    if (ImGui::Button("Start"))
+    {
+        server.run();
+    }
+    ImGui::PopStyleColor();
+
     ImGui::End();
 }
 
