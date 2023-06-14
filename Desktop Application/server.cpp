@@ -11,6 +11,7 @@ Server::~Server() {}
 
 void Server::serverOpen(websocketpp::connection_hdl hdl)
 {
+   
 }
 
 void Server::run()
@@ -40,5 +41,5 @@ void Server::run()
     endpoint.listen(9002);
     endpoint.start_accept();
     endpoint.run();
-
+  
 }

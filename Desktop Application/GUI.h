@@ -14,7 +14,8 @@ public:
     ~GUI();
     void NewFrame();
     void Init(GLFWwindow * window, const char* glsl_version);
-    void Update(Server &server);
+    void Update(bool &s_started);
+    void Update();
     void Render(GLFWwindow *window);
     void Shutdown(GLFWwindow *window);
 };

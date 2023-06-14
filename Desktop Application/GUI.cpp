@@ -26,7 +26,7 @@ void GUI::NewFrame()
     ImGui::NewFrame();
 }
 
-void GUI::Update(Server &server)
+void GUI::Update(bool &s_started)
 {
     ImGui::Begin("Placholder name", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
     ImGui::Indent();
@@ -48,12 +48,14 @@ void GUI::Update(Server &server)
     ImGui::SameLine();
     if (ImGui::Button("Start"))
     {
-        server.run();
+        s_started = true;
     }
     ImGui::PopStyleColor();
 
     ImGui::End();
 }
+
+
 
 void GUI::Render(GLFWwindow *window)
 {
