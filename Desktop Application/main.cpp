@@ -43,7 +43,15 @@ int startGUI()
 
         glfwPollEvents();
         gui.NewFrame();
-        gui.Update(s_started);
+        if (s_started == true)
+        {
+            gui.Update();
+        }
+        else
+        {
+            gui.Update(s_started);
+        }
+
         gui.Render(window);
         glfwSwapBuffers(window);
     }
@@ -58,7 +66,7 @@ int main()
     std::thread guiWorker(startGUI);
     while (s_started == false)
     {
-        std::cout << "waiting...";
+        
     }
     std::thread serverWorker(startServer);
     serverWorker.join();

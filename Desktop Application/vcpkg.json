@@ -23,6 +23,10 @@
                "features": ["opengl3-binding", "glfw-binding"]
             }, 
             "glfw3", "glad"]
+        },
+        {
+            "name" : "Stb",
+            "version>=" : "2021-09-10"
         }
        
     ]
