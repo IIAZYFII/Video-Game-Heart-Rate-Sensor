@@ -1,4 +1,6 @@
 #include "GUI.h"
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 GUI::GUI() {}
 GUI::~GUI() {}
 
@@ -26,11 +28,29 @@ void GUI::NewFrame()
     ImGui::NewFrame();
 }
 
-void GUI::Update()
+void GUI::Update(GLuint heart_texture, int heart_height, int heart_width)
 {
-     ImGui::Begin("Placholder name", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
-     ImGui::Indent();
-     
+    ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.0f, 1.0f, 0.0f, 1.0f));
+
+    ImGui::Begin("Placholder name", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
+    ImGui::Indent();
+
+    ImGui::Image((void *)(intptr_t)heart_texture, ImVec2(heart_width, heart_height));
+
+    ImGui::Indent();
+    ImGui::SameLine();
+
+    ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(255, 255, 255, 255));
+    
+    ImGui::Text("0");
+
+    ImGui::SameLine();
+    ImGui::Text("BPM");
+    ImGui::PopStyleColor();
+
+    ImGui::End();
+
+    ImGui::PopStyleColor();
 }
 
 void GUI::Update(bool &s_started)
@@ -72,6 +92,7 @@ void GUI::Render(GLFWwindow *window)
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
+
 void GUI::Shutdown(GLFWwindow *window)
 {
     ImGui_ImplOpenGL3_Shutdown();
@@ -80,4 +101,37 @@ void GUI::Shutdown(GLFWwindow *window)
 
     glfwDestroyWindow(window);
     glfwTerminate();
+}
+
+bool GUI::loadImage(const char *filename, GLuint &out_texture, int &out_width, int &out_height)
+{
+
+    int width = 0;
+    int height = 0;
+
+    unsigned char *image_data = stbi_load(filename, &width, &height, NULL, 4);
+
+    if (image_data == NULL)
+    {
+        return false;
+    }
+
+    GLuint texture;
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+#if defined(GL_UNPACK_ROW_LENGTH) && !defined(__EMSCRIPTEN__)
+    glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
+#endif
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image_data);
+    stbi_image_free(image_data);
+
+    out_texture = texture;
+    out_width = width;
+    out_height = height;
+
+    return true;
 }

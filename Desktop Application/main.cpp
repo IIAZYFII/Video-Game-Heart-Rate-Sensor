@@ -22,7 +22,7 @@ int startGUI()
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
     // Create window with graphics context
-    GLFWwindow *window = glfwCreateWindow(400, 250, "Example", nullptr, nullptr);
+    GLFWwindow *window = glfwCreateWindow(400, 100, "Example", nullptr, nullptr);
     if (window == nullptr)
         return 1;
     glfwMakeContextCurrent(window);
@@ -38,6 +38,15 @@ int startGUI()
 
     gui.Init(window, glsl_version);
 
+    int heart_width = 0;
+    int heart_height = 0;
+    GLuint heart_texture = 0;
+
+    const char *filename = "Assets/Images/red-heart-icon.png";
+
+    bool ret = gui.loadImage(filename, heart_texture, heart_width, heart_height);
+    IM_ASSERT(ret);
+
     while (!glfwWindowShouldClose(window))
     {
 
@@ -45,7 +54,7 @@ int startGUI()
         gui.NewFrame();
         if (s_started == true)
         {
-            gui.Update();
+            gui.Update(heart_texture, 50, 50);
         }
         else
         {
@@ -66,7 +75,6 @@ int main()
     std::thread guiWorker(startGUI);
     while (s_started == false)
     {
-        
     }
     std::thread serverWorker(startServer);
     serverWorker.join();
