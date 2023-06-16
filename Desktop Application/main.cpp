@@ -3,11 +3,12 @@
 
 static bool s_started = false;
 static bool s_running = false;
+static int bpm = 0;
 
 void startServer()
 {
     Server server;
-    server.run();
+    server.run(bpm);
 }
 
 int startGUI()
@@ -22,7 +23,7 @@ int startGUI()
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
     // Create window with graphics context
-    GLFWwindow *window = glfwCreateWindow(400, 100, "Example", nullptr, nullptr);
+    GLFWwindow *window = glfwCreateWindow(400, 100, "StreamerKardiogramm", nullptr, nullptr);
     if (window == nullptr)
         return 1;
     glfwMakeContextCurrent(window);
@@ -54,7 +55,7 @@ int startGUI()
         gui.NewFrame();
         if (s_started == true)
         {
-            gui.Update(heart_texture, 50, 50);
+            gui.Update(heart_texture, 50, 50, bpm);
         }
         else
         {

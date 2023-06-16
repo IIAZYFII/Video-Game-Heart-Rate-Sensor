@@ -13,7 +13,8 @@ void GUI::Init(GLFWwindow *window, const char *glsl_version)
     ImGuiIO &io = ImGui::GetIO();
     (void)io;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-    io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\segoeui.ttf", 18.0f);
+    segoeui_font = io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\segoeui.ttf", 18.0f);
+    inter_bold_font = io.Fonts->AddFontFromFileTTF("Assets\\Fonts\\Inter-ExtraBold.ttf", 50.0f);
 
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(glsl_version);
@@ -28,7 +29,7 @@ void GUI::NewFrame()
     ImGui::NewFrame();
 }
 
-void GUI::Update(GLuint heart_texture, int heart_height, int heart_width)
+void GUI::Update(GLuint heart_texture, int heart_height, int heart_width, int &bpm)
 {
     ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.0f, 1.0f, 0.0f, 1.0f));
 
@@ -38,14 +39,20 @@ void GUI::Update(GLuint heart_texture, int heart_height, int heart_width)
     ImGui::Image((void *)(intptr_t)heart_texture, ImVec2(heart_width, heart_height));
 
     ImGui::Indent();
+    ImGui::Indent();
     ImGui::SameLine();
 
+    ImGuiIO &io = ImGui::GetIO();
+    (void)io;
+    ImGui::PushFont(inter_bold_font);
+
     ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(255, 255, 255, 255));
-    
-    ImGui::Text("0");
+
+    ImGui::Text(std::to_string(bpm).c_str());
 
     ImGui::SameLine();
     ImGui::Text("BPM");
+    ImGui::PopFont();
     ImGui::PopStyleColor();
 
     ImGui::End();
@@ -55,7 +62,7 @@ void GUI::Update(GLuint heart_texture, int heart_height, int heart_width)
 
 void GUI::Update(bool &s_started)
 {
-    ImGui::Begin("Placholder name", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
+    ImGui::Begin("StreamerKardiogramm", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
     ImGui::Indent();
     const char *ip_addresses[] = {"192.168.0.1", "192.168.0.13"};
     static int current_item = 0;

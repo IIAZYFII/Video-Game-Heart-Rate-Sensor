@@ -5,15 +5,17 @@
 #include <websocketpp/server.hpp>
 #include <websocketpp/config/asio_no_tls.hpp>
 #include <functional>
+
 class Server
 {
 private:
     websocketpp::server<websocketpp::config::asio> endpoint;
+   bool isNumber(std::string check_string);
 
 public:
     Server();
     ~Server();
-    void run();
+    void run(int &bpm);
     void serverOpen(websocketpp::connection_hdl hdl);
 };
 #endif

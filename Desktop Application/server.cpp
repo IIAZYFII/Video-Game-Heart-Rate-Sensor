@@ -1,4 +1,5 @@
 #include "server.h"
+#include <string.h>
 
 Server::Server()
 {
@@ -11,11 +12,11 @@ Server::~Server() {}
 
 void Server::serverOpen(websocketpp::connection_hdl hdl)
 {
-   
 }
 
-void Server::run()
+void Server::run(int &bpm)
 {
+
     websocketpp::server<websocketpp::config::asio> *endpointref = &endpoint;
     endpoint.set_open_handler([&endpointref](websocketpp::connection_hdl hdl)
                               {
@@ -24,14 +25,18 @@ void Server::run()
 
                                   endpointref->send(hdl, "WebSocket Connection Established", websocketpp::frame::opcode::text); });
 
-    endpoint.set_message_handler([&endpointref](websocketpp::connection_hdl hdl, websocketpp::server<websocketpp::config::asio>::message_ptr msg)
+    endpoint.set_message_handler([&endpointref, &bpm, this](websocketpp::connection_hdl hdl, websocketpp::server<websocketpp::config::asio>::message_ptr msg)
                                  {
     std::string message = msg->get_payload();
 
      websocketpp::server<websocketpp::config::asio>::connection_ptr connection = endpointref->get_con_from_hdl(hdl);
-
-    
-
+   
+     if(this->isNumber(message) == true) 
+     {
+        bpm = std::stoi(message);
+     } 
+        
+  
     std::cout << "Received message from " << connection->get_remote_endpoint() << ": " << message << std::endl;
 
   
@@ -41,5 +46,16 @@ void Server::run()
     endpoint.listen(9002);
     endpoint.start_accept();
     endpoint.run();
-  
+}
+
+bool Server::isNumber(std::string check_string)
+{
+    for (int i = 0; i < check_string.length(); i++)
+    {
+        if (isdigit(check_string[i]) == false)
+        {
+            return false;
+        }
+    }
+    return true;
 }
