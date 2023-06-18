@@ -10,12 +10,13 @@ class Server
 {
 private:
     websocketpp::server<websocketpp::config::asio> endpoint;
-   bool isNumber(std::string check_string);
+    bool isNumber(std::string check_string);
 
 public:
     Server();
     ~Server();
     void run(int &bpm, int &s_port);
-    void serverOpen(websocketpp::connection_hdl hdl);
+    void stop();
+    bool isOpen();
 };
 #endif

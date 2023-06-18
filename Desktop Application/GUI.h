@@ -20,7 +20,7 @@ public:
     ~GUI();
     void NewFrame();
     void Init(GLFWwindow *window, const char *glsl_version);
-    void Update(GLuint heart_texture, int heart_height, int heart_width, int &bpm);
+    void Update(GLuint heart_texture, int heart_height, int heart_width, int &bpm, bool &s_started);
     void Update(bool &s_started, int &s_port);
     void Render(GLFWwindow *window);
     void Shutdown(GLFWwindow *window);

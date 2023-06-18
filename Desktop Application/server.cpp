@@ -10,8 +10,9 @@ Server::Server()
 
 Server::~Server() {}
 
-void Server::serverOpen(websocketpp::connection_hdl hdl)
+bool Server::isOpen()
 {
+    return endpoint.is_listening();
 }
 
 void Server::run(int &bpm, int &s_port)
@@ -46,6 +47,12 @@ void Server::run(int &bpm, int &s_port)
     endpoint.listen(s_port);
     endpoint.start_accept();
     endpoint.run();
+}
+
+void Server::stop()
+{
+    endpoint.stop_listening();
+    endpoint.stop();
 }
 
 bool Server::isNumber(std::string check_string)

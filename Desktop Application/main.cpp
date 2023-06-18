@@ -2,17 +2,21 @@
 #include <thread>
 
 static bool s_started = false;
-static bool s_running = false;
 static int s_port = 9002;
 static int bpm = 0;
 
-void startServer()
+void startServer(Server &server)
 {
-    Server server;
-    server.run(bpm, s_port);
+    while (1)
+    {
+        if (s_started == true)
+        {
+            server.run(bpm, s_port);
+        }
+    }
 }
 
-int startGUI()
+int startGUI(Server &server)
 {
     const char *glsl_version = "#version 130";
 
@@ -56,11 +60,15 @@ int startGUI()
         gui.NewFrame();
         if (s_started == true)
         {
-            gui.Update(heart_texture, 50, 50, bpm);
+            gui.Update(heart_texture, 50, 50, bpm, s_started);
         }
         else
         {
             gui.Update(s_started, s_port);
+            if (server.isOpen() == true && s_started == false)
+            {
+                server.stop();
+            }
         }
 
         gui.Render(window);
@@ -73,12 +81,9 @@ int startGUI()
 
 int main()
 {
-
-    std::thread guiWorker(startGUI);
-    while (s_started == false)
-    {
-    }
-    std::thread serverWorker(startServer);
+    Server server;
+    std::thread guiWorker(startGUI, std::ref(server));
+    std::thread serverWorker(startServer, std::ref(server));
     serverWorker.join();
     guiWorker.join();
 

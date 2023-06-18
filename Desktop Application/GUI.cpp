@@ -29,7 +29,7 @@ void GUI::NewFrame()
     ImGui::NewFrame();
 }
 
-void GUI::Update(GLuint heart_texture, int heart_height, int heart_width, int &bpm)
+void GUI::Update(GLuint heart_texture, int heart_height, int heart_width, int &bpm, bool &s_started)
 {
     ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.0f, 1.0f, 0.0f, 1.0f));
 
@@ -54,6 +54,12 @@ void GUI::Update(GLuint heart_texture, int heart_height, int heart_width, int &b
     ImGui::Text("BPM");
     ImGui::PopFont();
     ImGui::PopStyleColor();
+
+    if (ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_Escape)))
+    {
+        s_started = false;
+        std::cout << "test \n";
+    }
 
     ImGui::End();
 
