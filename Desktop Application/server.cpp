@@ -14,7 +14,7 @@ void Server::serverOpen(websocketpp::connection_hdl hdl)
 {
 }
 
-void Server::run(int &bpm)
+void Server::run(int &bpm, int &s_port)
 {
 
     websocketpp::server<websocketpp::config::asio> *endpointref = &endpoint;
@@ -43,7 +43,7 @@ void Server::run(int &bpm)
 
     endpointref->send(hdl, message, msg->get_opcode()); });
 
-    endpoint.listen(9002);
+    endpoint.listen(s_port);
     endpoint.start_accept();
     endpoint.run();
 }

@@ -21,7 +21,7 @@ public:
     void NewFrame();
     void Init(GLFWwindow *window, const char *glsl_version);
     void Update(GLuint heart_texture, int heart_height, int heart_width, int &bpm);
-    void Update(bool &s_started);
+    void Update(bool &s_started, int &s_port);
     void Render(GLFWwindow *window);
     void Shutdown(GLFWwindow *window);
     bool loadImage(const char *filename, GLuint &out_texture, int &out_width, int &out_height);

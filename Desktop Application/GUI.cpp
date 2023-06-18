@@ -60,9 +60,9 @@ void GUI::Update(GLuint heart_texture, int heart_height, int heart_width, int &b
     ImGui::PopStyleColor();
 }
 
-void GUI::Update(bool &s_started)
+void GUI::Update(bool &s_started, int &s_port)
 {
-    ImGui::Begin("StreamerKardiogramm", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
+    ImGui::Begin("Placholder name", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
     ImGui::Indent();
     const char *ip_addresses[] = {"192.168.0.1", "192.168.0.13"};
     static int current_item = 0;
@@ -73,8 +73,8 @@ void GUI::Update(bool &s_started)
     ImGui::SameLine();
     ImGui::SetNextItemWidth(50);
 
-    char portTextBuffer[6] = "9002";
-    ImGui::InputText("##Port", portTextBuffer, sizeof(portTextBuffer), ImGuiInputTextFlags_CharsDecimal);
+    static char portTextBuffer[5] = "9002";
+    ImGui::InputText("##Port", portTextBuffer, IM_ARRAYSIZE(portTextBuffer), ImGuiInputTextFlags_CharsDecimal);
 
     ImGui::SameLine();
     ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(255, 255, 255, 255));
@@ -82,6 +82,8 @@ void GUI::Update(bool &s_started)
     ImGui::SameLine();
     if (ImGui::Button("Start"))
     {
+
+        s_port = atoi(portTextBuffer);
         s_started = true;
     }
     ImGui::PopStyleColor();

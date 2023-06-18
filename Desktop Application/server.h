@@ -15,7 +15,7 @@ private:
 public:
     Server();
     ~Server();
-    void run(int &bpm);
+    void run(int &bpm, int &s_port);
     void serverOpen(websocketpp::connection_hdl hdl);
 };
 #endif

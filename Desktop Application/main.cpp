@@ -3,12 +3,13 @@
 
 static bool s_started = false;
 static bool s_running = false;
+static int s_port = 9002;
 static int bpm = 0;
 
 void startServer()
 {
     Server server;
-    server.run(bpm);
+    server.run(bpm, s_port);
 }
 
 int startGUI()
@@ -59,7 +60,7 @@ int startGUI()
         }
         else
         {
-            gui.Update(s_started);
+            gui.Update(s_started, s_port);
         }
 
         gui.Render(window);
