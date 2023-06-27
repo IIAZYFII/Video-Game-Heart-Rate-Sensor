@@ -1,6 +1,6 @@
 #include "GUI.h"
 #include <thread>
-
+#include <stdlib.h>
 static bool s_started = false;
 static int s_port = 9002;
 static int bpm = 0;
@@ -67,6 +67,7 @@ int startGUI(Server &server)
             gui.Update(s_started, s_port);
             if (server.isOpen() == true && s_started == false)
             {
+
                 server.stop();
             }
         }
@@ -86,6 +87,6 @@ int main()
     std::thread serverWorker(startServer, std::ref(server));
     serverWorker.join();
     guiWorker.join();
-
     return 0;
 }
+

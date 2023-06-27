@@ -12,19 +12,24 @@ Server::~Server() {}
 
 bool Server::isOpen()
 {
-    return endpoint.is_listening();
+    return this->open;
 }
 
 void Server::run(int &bpm, int &s_port)
 {
 
     websocketpp::server<websocketpp::config::asio> *endpointref = &endpoint;
-    endpoint.set_open_handler([&endpointref](websocketpp::connection_hdl hdl)
+    endpoint.set_open_handler([&endpointref, this](websocketpp::connection_hdl hdl)
                               {
+            
                                   websocketpp::server<websocketpp::config::asio>::connection_ptr conn = endpointref->get_con_from_hdl(hdl);
                                   std::cout << "New Connection Established" << conn->get_remote_endpoint() << "\n";
                                   endpointref->send(hdl, "WebSocket Connection Established", websocketpp::frame::opcode::text);
-                                  endpointref->stop_listening(); });
+
+                                  this->current_hdl = &hdl;
+                                  endpointref->stop_listening();
+                                  
+                                  this->clickServerSwitch(); });
 
     endpoint.set_message_handler([&endpointref, &bpm, this](websocketpp::connection_hdl hdl, websocketpp::server<websocketpp::config::asio>::message_ptr msg)
                                  {
@@ -47,15 +52,21 @@ void Server::run(int &bpm, int &s_port)
     endpoint.listen(s_port);
     endpoint.start_accept();
     endpoint.run();
-  
 }
 
 void Server::stop()
 {
 
-
-
-
+    websocketpp::lib::error_code error_code;
+    endpoint.pause_reading(*current_hdl);
+ 
+    endpoint.close(*current_hdl, websocketpp::close::status::going_away, "", error_code);
+    if (error_code)
+    {
+        std::cout << "> Error closing connection "
+                  << error_code.message() << std::endl;
+    }
+    this->clickServerSwitch();
 }
 
 bool Server::isNumber(std::string check_string)
@@ -68,4 +79,16 @@ bool Server::isNumber(std::string check_string)
         }
     }
     return true;
+}
+
+void Server::clickServerSwitch()
+{
+    if (this->isOpen() == false)
+    {
+        this->open = true;
+    }
+    else
+    {
+        this->open = false;
+    }
 }

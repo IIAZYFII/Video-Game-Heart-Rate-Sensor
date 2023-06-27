@@ -58,7 +58,7 @@ void GUI::Update(GLuint heart_texture, int heart_height, int heart_width, int &b
     if (ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_Escape)))
     {
         s_started = false;
-        std::cout << "test \n";
+
     }
 
     ImGui::End();

@@ -10,7 +10,9 @@ class Server
 {
 private:
     websocketpp::server<websocketpp::config::asio> endpoint;
+    websocketpp::connection_hdl *current_hdl = NULL;
     bool isNumber(std::string check_string);
+    bool open = false;
 
 public:
     Server();
@@ -18,5 +20,6 @@ public:
     void run(int &bpm, int &s_port);
     void stop();
     bool isOpen();
+    void clickServerSwitch();
 };
 #endif
